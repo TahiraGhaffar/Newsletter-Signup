@@ -35,11 +35,15 @@ app.post("/", function(req,res){
     };
 
     const jsonData = JSON.stringify(data);
-    const url = "https://us14.api.mailchimp.com/3.0/lists/2c60ea34e5";
+    //const url = "https://us14.api.mailchimp.com/3.0/lists/2c60ea34e5"; 
+    const url =  "https://us14.api.mailchimp.com/3.0/lists/2c60ea34e5"
 
     const options = {
         method : "POST",
-        auth : "tahira:31338d3e705b4c9bed9a03a134367cc4-us14"// name:password i.e API key
+        //old API key with name "Posted in public, do not enable"  & not active now
+        //auth : "tahira:31338d3e705b4c9bed9a03a134367cc4-us14"// name:password i.e API key
+        //new API key with name "newsletter-signup"  & active now on MAILCHIMP
+        auth : "tahira:3fd2f42693e16ae419eae421b946e4f8-us14"
     };
 
    const request = https.request(url, options, function(response){//here response is not built-in, we can name it anything
@@ -69,7 +73,7 @@ app.post("/failure", function(req,res){ //means a Post Request is made from "fai
 
 
 
-app.listen(process.env.PORT || 3000, function(){ //process is a HEROKU object to tell to run on their chosen port
+app.listen(process.env.PORT || 3003, function(){ //process is a HEROKU object to tell to run on their chosen port
     console.log("Server running");
 });
 
